@@ -1,35 +1,26 @@
-/*
- * Application Name: Palindrome Checker App
- * Version: 1.0
- * @author:divan
- * UC1:application entry & welcome message
- * Description: Console-based application to validate whether a given string is a palindrome.
- */
+import java.util.Scanner;
 
-public class PalindromeChecker {
+class PalindromeCheckerApp {
 
-    // Application constants
-    private static final String APP_NAME = "Palindrome Checker App";
-    private static final String VERSION = "Version 1.0";
-
-    // Main Method - Entry Point of JVM
     public static void main(String[] args) {
 
-        // Welcome Message
-        System.out.println("=====================================");
-        System.out.println("      " + APP_NAME);
-        System.out.println("      " + VERSION);
-        System.out.println("=====================================");
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the Palindrome Checker Application!");
-        System.out.println("This application checks whether a given string is a palindrome.");
-        System.out.println();
+        System.out.print("Enter a string to check palindrome: ");
+        String original = scanner.nextLine();
 
-        // Flow control - placeholder for next use case
-        System.out.println("Application started successfully.");
-        System.out.println("Proceeding to palindrome validation module...");
+        String reversed = "";
 
-        // Future use case method call will go here
-        // checkPalindrome();
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
+        }
+
+        if (original.equals(reversed)) {
+            System.out.println("The given string is a Palindrome.");
+        } else {
+            System.out.println("The given string is NOT a Palindrome.");
+        }
+
+        scanner.close();
     }
 }
