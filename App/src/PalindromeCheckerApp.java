@@ -1,35 +1,52 @@
-/*
- * Application Name: Palindrome Checker App
- * Version: 1.0
- * @author:divan
- * UC1:application entry & welcome message
- * Description: Console-based application to validate whether a given string is a palindrome.
+/**
+ * ======================================================
+ * MAIN CLASS - UseCase2PalindromeCheckerApp
+ * ======================================================
+ *
+ * Use Case 2: Hardcoded Palindrome Validation
+ *
+ * Description:
+ * This class demonstrates basic palindrome validation
+ * using a hardcoded string value.
+ *
+ * At this stage, the application:
+ * - Stores a predefined string
+ * - Compares characters from both ends
+ * - Determines whether the string is a palindrome
+ * - Displays the result on the console
+ *
+ * This use case introduces fundamental comparison logic
+ * before using advanced data structures.
+ *
+ * @author Developer
+ * @version 2.0
  */
 
-public class PalindromeChecker {
+class PalindromeCheckerApp {
 
-    // Application constants
-    private static final String APP_NAME = "Palindrome Checker App";
-    private static final String VERSION = "Version 1.0";
-
-    // Main Method - Entry Point of JVM
+    /**
+     * Application entry point for UC2.
+     *
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
 
-        // Welcome Message
-        System.out.println("=====================================");
-        System.out.println("      " + APP_NAME);
-        System.out.println("      " + VERSION);
-        System.out.println("=====================================");
+        String input = "LEVEL";   // Hardcoded string
+        boolean isPalindrome = true;
 
-        System.out.println("Welcome to the Palindrome Checker Application!");
-        System.out.println("This application checks whether a given string is a palindrome.");
-        System.out.println();
+        // Loop only till half of the string length
+        for (int i = 0; i < input.length() / 2; i++) {
 
-        // Flow control - placeholder for next use case
-        System.out.println("Application started successfully.");
-        System.out.println("Proceeding to palindrome validation module...");
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
 
-        // Future use case method call will go here
-        // checkPalindrome();
+        if (isPalindrome) {
+            System.out.println(input + " is a Palindrome");
+        } else {
+            System.out.println(input + " is not a Palindrome");
+        }
     }
 }
